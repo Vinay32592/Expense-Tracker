@@ -1,0 +1,192 @@
+/* --- Global Styles & Variables --- */
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --secondary-color: #6c757d;
+  --secondary-hover: #5a6268;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --bg-color: #f4f7f9;
+  --card-bg-color: #ffffff;
+  --text-color: #333;
+  --text-light-color: #666;
+  --border-color: #e9ecef;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* --- Layout --- */
+.container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.main-header {
+  margin-bottom: 2rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.main-column, .sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- Card Style --- */
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+/* --- Balance Header --- */
+.balance {
+  text-align: center;
+  padding: 1.5rem;
+}
+.balance span {
+  font-size: 1rem;
+  color: var(--text-light-color);
+}
+.balance h2 {
+  font-size: 2.75rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+/* --- Forms --- */
+form .form-group {
+  margin-bottom: 1rem;
+}
+form label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-light-color);
+}
+input, select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.sub-form input {
+  margin-bottom: 0.75rem;
+}
+
+/* --- Buttons --- */
+.btn {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+.btn.btn-secondary { background-color: var(--secondary-color); }
+.btn.btn-secondary:hover { background-color: var(--secondary-hover); }
+
+/* --- Transaction List --- */
+#transaction-list {
+  list-style-type: none;
+}
+#transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 5px solid;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+#transaction-list li:last-child {
+  border-bottom: none;
+}
+#transaction-list li.income { border-right-color: var(--success-color); }
+#transaction-list li.expense { border-right-color: var(--danger-color); }
+.delete-btn {
+  background-color: var(--danger-color);
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  color: white;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+#transaction-list li:hover .delete-btn { opacity: 1; }
+
+/* --- Goal & Insights --- */
+#goal-display { text-align: center; margin-bottom: 1rem; }
+#goal-text { color: var(--text-light-color); }
+#insight-text { color: var(--text-light-color); font-style: italic; text-align: center; }
+progress {
+  width: 100%; height: 8px; -webkit-appearance: none; appearance: none; margin-top: 0.5rem;
+}
+progress::-webkit-progress-bar { background-color: var(--border-color); border-radius: 4px; }
+progress::-webkit-progress-value { background-color: var(--success-color); border-radius: 4px; }
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+  .balance h2 { font-size: 2rem; }
+}
